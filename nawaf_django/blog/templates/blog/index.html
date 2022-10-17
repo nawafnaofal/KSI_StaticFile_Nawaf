@@ -1,24 +1,32 @@
-{% comment %} {% extends 'blog/base.html' %}  {% endcomment %}
+{% comment %} {% extends 'blog/base.html' %}   {% endcomment %}
 {% load static %}
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-        <link rel="stylesheet" type="text/css" href="% static 'css/style.css' %" />
+        <title>Static File</title>
+       
+
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
         <link
         rel="stylesheet"
         href="{% static 'vendor/bootstrap/bootstrap.css' %}"
         />
     </head>
     <body>
-    {% include "blog/navbar.html" %} 
+    {% include "blog/navbar.html" %}
+     
     {% comment %} {% block header %}
-    <h2 class="display-4">anjay mabar</h2>
-    <p class="lead">mabar anjay</p>
-    {% endblock header %} {% endcomment %}
-    <h2>yahahaa wahyu</h2>
+    <h2 class="display-4">ini contoh Extends</h2>
+    <p class="lead">Extends</p>
+    {% endblock header %}  {% endcomment %}
+
+    <h1 class="pertama">Hi, This's new project by 1204036_Nawaf</h1>
+    <h1 class="kedua">This is a picture of Django</h1>
+    <h2 class="ketiga">Django was created in the fall of 2003</h2>
+    <h3 class="keempat">Django is a lightweight and standalone web server for development and testing</h3>
+    <a class="ling" href="https://www.djangoproject.com/">Now Less Roll!</a>
     <img src="{%static "img/testpy.jpg" %}">
 
     <script>
