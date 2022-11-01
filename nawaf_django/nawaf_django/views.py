@@ -1,8 +1,13 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 
-def index(request):
-    return render(request,'blog/index.html')
+def articles(request,year):
+    year=year
+    str=year
+    return HttpResponse(year)
 
-# def about(request):
-#     return HttpResponse("ini about")
+def index(request):
+    return HttpResponse('ini index')
+
+def about(request):
+    return HttpResponse("ini about")

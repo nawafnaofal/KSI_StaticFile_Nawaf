@@ -10,13 +10,19 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.RemoveField(
+        migrations.AddField(
             model_name='post',
-            name='title',
+            name='email',
+            field=models.EmailField(blank=True, max_length=254),
         ),
         migrations.AddField(
             model_name='post',
             name='slug',
             field=models.SlugField(blank=True, editable=False),
+        ),
+        migrations.AlterField(
+            model_name='post',
+            name='title',
+            field=models.CharField(blank=True, max_length=20),
         ),
     ]
