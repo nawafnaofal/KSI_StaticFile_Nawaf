@@ -16,7 +16,8 @@
   </head>
   <body>
     
-    <ul class="navbar-nav ml-auto">
+     {% comment %}
+      <ul class="navbar-nav ml-auto">
       <li class="nav-item">
           <a class="nav-link" href="{%url "index" %}" title="">Home</a>
       </li>
@@ -48,7 +49,62 @@
     <h2 class="ketiga">Django was created in the fall of 2003</h2>
     <h3 class="keempat">Django is a lightweight and standalone web server for development and testing</h3>
     <a class="ling" href="https://www.djangoproject.com/">Now Less Roll!</a>
-    <img src="{%static "img/testpy.jpg" %}">
+    <img src="{%static "img/testpy.jpg" %}"> 
+
+    <form action="post">
+      {% csrf_token %}
+
+      {{ classform.title.label }}<br>
+      {{ classform.title }}<br>
+      {{ classform.body.label }}<br>
+      {{ classform.body }}<br>
+      {{ classform.email.label }}<br>
+      {{ classform.email }}<br>
+
+      <label for="nama">Nama : </label>
+      <input type="text" name="nama" id="nama">
+      <br>
+      <label for="alamat">Alamat : </label>
+      <input type="text" name="alamat" id="alamat">
+      <br> 
+      <button type="Submit">Kirim</button>
+  </form> 
+  {% endcomment %}
+
+
+  
+
+  <a class='btn btn-success' href="{% url "form" %}">Tambah</a> 
+  <table class="table">
+    <thead>
+       <tr>
+          <th scope="col">#</th>
+          <th scope="col">Judul</th> 
+          <th scope="col">Body</th> 
+          <th scope="col">E-mail</th> 
+          <th scope="col">Hapus</th> 
+          <th scope="col">Update</th> 
+      </tr>
+  </thead>
+    <tbody>
+      {% for v in post %}
+    <tr>
+      <th_scope="row">{{ forloop.counter }}</th>
+      <td>{{v.title}}</td>
+      <td>{{v.body}}</td> 
+      <td>{{v.email}}</td>
+      <td>{{v.email}}</td>
+      <td><a class="btn btn-danger" href="{% url 'blog:delete' v.id %}"> Hapus</a></td>
+      <td><a class="btn btn-warning" href="{% url 'update' v.id %}">Update </a></td>
+    </tr>
+      {% endfor %}
+    </tbody>
+
+  </table>
+
+
+  
+
 
     <script>
       src = "{% static 'vendor/jquery/jquery.js' %}";
@@ -58,6 +114,6 @@
     </script>
     <script>
       src = "{% static 'vendor/bootstrap/bootstrap.js' %}";
-    </script>
+    </script> 
   </body>
 </html>
